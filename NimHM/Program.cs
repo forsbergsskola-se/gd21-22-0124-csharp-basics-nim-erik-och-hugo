@@ -9,7 +9,7 @@ Console.WriteLine("Welcome to Nim!");
 
 ThreadStart:
 if
-    (count < 0)
+    (count < 1)
 {
     Console.WriteLine("You lose!");
     Console.ReadKey();
@@ -38,29 +38,36 @@ if ((i % 2) == 0)
             int randomInt = randomGenerator.Next(1, 4);
             count = (count - randomInt);
             removedMatches = matches.Remove(0, randomInt);
-            Console.WriteLine("ai  has removed " + randomInt + " match(es)");
+            Console.WriteLine("randomai  has removed " + randomInt + " match(es)");
             matches = removedMatches;
             
         }
 
-        if (count == 3)
-        {
-            count = (count - 3);
-            removedMatches = matches.Remove(0, 3);
-            matches = removedMatches;
-        }
-        if (count==2)
+        else if (count == 3)
         {
             count = (count - 2);
             removedMatches = matches.Remove(0, 2);
             matches = removedMatches;
+            Console.WriteLine("ai  has removed 2 match(es)");
+            
         }
-
-        if (count == 1)
+        else if (count==2)
         {
             count = (count - 1);
             removedMatches = matches.Remove(0, 1);
             matches = removedMatches;
+            Console.WriteLine("ai  has removed 1 match(es)");
+            
+        }
+
+        else if (count == 1)
+        {
+            count = (count - 1);
+            removedMatches = matches.Remove(0, 1);
+            matches = removedMatches;
+            Console.WriteLine("ai  has removed 1 match(es)");
+            Console.WriteLine("Ai loses");
+            Console.ReadKey();
         }
         
         
@@ -68,6 +75,7 @@ if ((i % 2) == 0)
 
 
 }
+
 else //playerscript
 {
     if (ChosenNumber1)
