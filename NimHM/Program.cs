@@ -38,7 +38,7 @@ if ((i % 2) == 0)
             int randomInt = randomGenerator.Next(1, 4);
             count = (count - randomInt);
             removedMatches = matches.Remove(0, randomInt);
-            Console.WriteLine("randomai  has removed " + randomInt + " match(es)");
+            Console.WriteLine("ai  has removed " + randomInt + " match(es)");
             matches = removedMatches;
             
         }
