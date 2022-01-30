@@ -9,10 +9,10 @@ Console.WriteLine("Welcome to Nim!");
 
 ThreadStart:
 if
-    (count == 0)
+    (count < 0)
 {
     Console.WriteLine("You lose!");
-
+    Console.ReadKey();
 }
 
 Console.WriteLine("How many matches do you want to remove? (1,2,3)");
@@ -42,9 +42,25 @@ if ((i % 2) == 0)
             matches = removedMatches;
             
         }
-        if (count>2)
+
+        if (count == 3)
         {
-            
+            count = (count - 3);
+            removedMatches = matches.Remove(0, 3);
+            matches = removedMatches;
+        }
+        if (count==2)
+        {
+            count = (count - 2);
+            removedMatches = matches.Remove(0, 2);
+            matches = removedMatches;
+        }
+
+        if (count == 1)
+        {
+            count = (count - 1);
+            removedMatches = matches.Remove(0, 1);
+            matches = removedMatches;
         }
         
         
@@ -58,10 +74,14 @@ else //playerscript
     {
         numberOfTurns = (numberOfTurns - 1);
         count = (count - 1);
-        removedMatches = matches.Remove(0, 1);
-
+        
+        if (count>0)
+        {
+            removedMatches = matches.Remove(0, 1);
+            matches = removedMatches;
+        }
         Console.WriteLine("You have removed " + chosenNumber + " match");
-        matches = removedMatches;
+        
         goto ThreadStart;
     }
 
@@ -69,10 +89,13 @@ else //playerscript
     {
         numberOfTurns = (numberOfTurns - 1);
         count = (count - 2);
-        removedMatches = matches.Remove(0, 2);
-
+        if (count>0)
+        {
+            removedMatches = matches.Remove(0, 2);
+            matches = removedMatches;
+        }
         Console.WriteLine("You have removed " + chosenNumber + " matches");
-        matches = removedMatches;
+        
         goto ThreadStart;
 
     }
@@ -81,8 +104,11 @@ else //playerscript
     {
         numberOfTurns = (numberOfTurns - 1);
         count = (count - 3);
-        removedMatches = matches.Remove(0, 3);
-        matches = removedMatches;
+        if (count>0)
+        {
+            removedMatches = matches.Remove(0, 3);
+            matches = removedMatches;
+        }
         Console.WriteLine("You have removed " + chosenNumber + " matches");
 
         goto ThreadStart;
